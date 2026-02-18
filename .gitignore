@@ -13,3 +13,8 @@ dist
 nr-win32-x64
 dist-electron
 *.pfx
+
+# 源代码提取临时目录
+.backup-shared-code-*
+app-extracted/
+nr-sources-extracted/
