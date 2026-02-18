@@ -86,6 +86,7 @@ export function getDataDbId(data: BSIData | Catalogue): string {
 export class Base {
   // Data
   id!: string;
+  type?: any;
   subType?: "mount" | "crew" | "unit-group";
   shared?: boolean;
   import?: boolean;
@@ -1146,9 +1147,12 @@ export class Condition extends Base {
   declare includeChildSelections: boolean;
   declare includeChildForces: boolean;
   declare percentValue?: boolean;
+  declare field: string;
+  declare value: string | number | boolean;
 }
 export class Constraint extends Condition {
   declare type: "min" | "max" | "exactly";
+  declare value: number;
 }
 export class Modifier extends Base implements BSIModifier {
   declare type: BSIModifierType;

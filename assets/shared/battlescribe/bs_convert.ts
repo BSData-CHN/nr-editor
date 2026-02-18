@@ -10,7 +10,7 @@ import { entries } from "./entries";
 export const containerTags = {} as Record<string, string | undefined>;
 for (const key in entries) {
   const cur = entries[key as keyof typeof entries]
-  if (cur.type) {
+  if ("type" in cur && cur.type) {
     containerTags[key] = cur.type
   }
 }
@@ -37,10 +37,12 @@ for (const key in containerTags) {
 }
 const allowed = {} as Record<string, Set<string> | string>;
 for (const [key, value] of Object.entries(entries)) {
-  if (typeof value.allowedChildrens === "string") {
-    allowed[key] = value.allowedChildrens;
-  } else {
-    allowed[key] = new Set(value.allowedChildrens);
+  if ("allowedChildrens" in value) {
+    if (typeof value.allowedChildrens === "string") {
+      allowed[key] = value.allowedChildrens;
+    } else {
+      allowed[key] = new Set(value.allowedChildrens);
+    }
   }
 }
 function parseValue(str: string): any {
