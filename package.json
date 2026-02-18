@@ -17,7 +17,13 @@
     "postinstall": "nuxt prepare",
     "electron": "npx nuxi generate --electron && npx electron dist",
     "deploy": "nuxi generate --ghpages && gh-pages -d dist -t true",
-    "increment-version": "npm version patch --force"
+    "increment-version": "npm version patch --force",
+    "i18n:extract": "node scripts/extract-texts.js",
+    "i18n:check": "node scripts/translation-helper.js all",
+    "i18n:coverage": "node scripts/translation-helper.js coverage",
+    "i18n:changes": "node scripts/translation-helper.js changes",
+    "i18n:report": "node scripts/translation-helper.js report",
+    "i18n:sync": "node scripts/translation-helper.js sync"
   },
   "build": {
     "appId": "nr-editor",
