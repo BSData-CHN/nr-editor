@@ -2,6 +2,9 @@
 import { defineNuxtConfig } from "nuxt/config";
 import pkg from "./package.json";
 import { dirname } from "path";
+import { fileURLToPath } from "node:url";
+
+const __filename = fileURLToPath(import.meta.url);
 const electron = process.argv.includes("--electron");
 const ghpages = process.argv.includes("--ghpages");
 
@@ -53,16 +56,17 @@ export default defineNuxtConfig({
     "~/plugins/vue_init.ts",
     ...(electron
       ? [
-        {
-          mode: "client",
-          src: "electron/renderer.ts",
-        },
-      ]
+          {
+            mode: "client" as const,
+            src: "electron/renderer.ts",
+          },
+        ]
       : []),
   ],
   typescript: {
     strict: true,
   },
+  // @ts-ignore - nuxt-electron module config
   electron: {
     build: [
       {
@@ -98,7 +102,7 @@ export default defineNuxtConfig({
   },
   css: ["~/shared_components/css/vars.scss", "~/shared_components/css/style.scss"],
   vite: {
-    plugins: [require("vite-plugin-commonjs")()],
+    plugins: [await import("vite-plugin-commonjs").then(m => m.default())],
   },
   ignore: [".release/**"],
   hooks: {
