@@ -49,6 +49,8 @@ export default defineNuxtConfig({
     : undefined,
   // @ts-ignore
   plugins: [
+    "~/plugins/i18n.ts",
+    "~/plugins/vue_init.ts",
     ...(electron
       ? [
         {

@@ -18,6 +18,7 @@ declare global {
   function $toRaw<T extends Object>(o: T): T;
   function $markRaw<T extends Object>(o: T): T;
   function $nextTick(): Promise<unknown>;
+  function $t(key: string, params?: Record<string, any>): string;
   var customPrompt: (
     data: string | { html: string; accept?: string; cancel?: string; id?: string }
   ) => Promise<boolean>;
