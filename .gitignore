@@ -13,6 +13,8 @@ dist
 nr-win32-x64
 dist-electron
 *.pfx
+.idea
+bun.lock
 
 # 源代码提取临时目录
 .backup-shared-code-*
