@@ -102,7 +102,7 @@ export default defineNuxtConfig({
   },
   css: ["~/shared_components/css/vars.scss", "~/shared_components/css/style.scss"],
   vite: {
-    plugins: [await import("vite-plugin-commonjs").then(m => m.default())],
+    plugins: [import("vite-plugin-commonjs").then((m) => m.default())],
   },
   ignore: [".release/**"],
   hooks: {
