@@ -1,0 +1,100 @@
+// CSS 变量定义
+:root {
+  --input-background: #2b2b2b;
+  --input-highlights: #4a90d9;
+  --box-border: #aaa;
+  --box-shadow: rgba(0, 0, 0, 0.2);
+  --color-gray: #888;
+  --color-lightblue: #4a90d9;
+  --image-filter: none;
+  --bg-texture: none;
+  --backgroundRepeat: repeat;
+  --backgroundSize: auto;
+  --backgroundPosition: left top;
+  --global-filter: none;
+  --font-color: #fff;
+  --font-color-units: #fff;
+  --font-color-title: #fff;
+  --font-color-forces: #fff;
+  --hover-color: rgba(74, 144, 217, 0.3);
+  --popups-hover: #4a90d9;
+  --popups-background: #2b2b2b;
+  --titleBarColor: #1e1e1e;
+  --checkbox-background: #4a90d9;
+  --cost-color: #fff;
+  --input-radius: 4px;
+  --italic: italic;
+  --color-red: #ff4444;
+  --color-green: #44ff44;
+  --color-blue: #4a90d9;
+  --color-orange: #ffa500;
+  --font: sans-serif;
+  --fontHeader: sans-serif;
+  --fontButton: sans-serif;
+  --fontSize: 16px;
+  --fontHeaderSize: 16px;
+  --fontButtonSize: 16px;
+  --fontHeaderTransform: none;
+  --bg-r: 43;
+  --bg-g: 43;
+  --bg-b: 43;
+  --bg-a: 1;
+  --header-radius: 4px;
+  --fontColor: #fff;
+  --background-color: #2b2b2b;
+  --color: #fff;
+  --alpha: 1;
+}
+
+// SCSS 变量（供组件引用）
+$box_border: var(--box-border, #aaa);
+$box_shadow: var(--box-shadow, rgba(0, 0, 0, 0.2));
+$input_background: var(--input-background, #2b2b2b);
+$input_highlights: var(--input-highlights, #4a90d9);
+$gray: var(--color-gray, #888);
+$light_blue: var(--color-lightblue, #4a90d9);
+$blue: var(--color-blue, #4a90d9);
+$red: var(--color-red, #ff4444);
+$green: var(--color-green, #44ff44);
+$orange: var(--color-orange, #ffa500);
+$image_filter: var(--image-filter, none);
+$bg_texture: var(--bg-texture, none);
+$backgroundRepeat: var(--backgroundRepeat, repeat);
+$backgroundSize: var(--backgroundSize, auto);
+$backgroundPosition: var(--backgroundPosition, left top);
+$global_filter: var(--global-filter, none);
+$font_color: var(--font-color, #fff);
+$font_color_units: var(--font-color-units, #fff);
+$font_color_title: var(--font-color-title, #fff);
+$font_color_forces: var(--font-color-forces, #fff);
+$hover_color: var(--hover-color, rgba(74, 144, 217, 0.3));
+$popups_hover: var(--popups-hover, #4a90d9);
+$popups_background: var(--popups-background, #2b2b2b);
+$titleBarColor: var(--titleBarColor, #1e1e1e);
+$checkbox_background: var(--checkbox-background, #4a90d9);
+$cost_color: var(--cost-color, #fff);
+$input_radius: var(--input-radius, 4px);
+$italic: var(--italic, italic);
+$font: var(--font, sans-serif);
+$fontHeader: var(--fontHeader, sans-serif);
+$fontButton: var(--fontButton, sans-serif);
+$fontSize: var(--fontSize, 16px);
+$fontHeaderSize: var(--fontHeaderSize, 16px);
+$fontButtonSize: var(--fontButtonSize, 16px);
+$fontHeaderTransform: var(--fontHeaderTransform, none);
+$header_radius: var(--header-radius, 4px);
+$fontColor: var(--fontColor, #fff);
+$background_color: var(--background-color, #2b2b2b);
+$color: var(--color, #fff);
+$alpha: var(--alpha, 1);
+
+// 响应式断点
+$very_large_mode: 1920px;
+$large_mode: 1440px;
+$medium_mode: 1024px;
+$small_mode: 768px;
+
+// 其他常用变量
+$spacing: 8px;
+$border_radius: 4px;
+$transition: 0.3s ease;
