@@ -1,11 +1,15 @@
 // CSS 变量定义
 :root {
   --input-background: #2b2b2b;
-  --input-highlights: #4a90d9;
+  --input-highlights: #0063fb;
   --box-border: #aaa;
-  --box-shadow: rgba(0, 0, 0, 0.2);
-  --color-gray: #888;
-  --color-lightblue: #4a90d9;
+  --box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  --color-gray: gray;
+  --color-lightblue: #006199;
+  --color-blue: #006199;
+  --color-red: #e64e4e;
+  --color-green: #439943;
+  --color-orange: #805300;
   --image-filter: none;
   --bg-texture: none;
   --backgroundRepeat: repeat;
@@ -17,17 +21,18 @@
   --font-color-title: #fff;
   --font-color-forces: #fff;
   --hover-color: rgba(74, 144, 217, 0.3);
+  --hover-darken-color: rgba(0, 0, 0, 0.15);
+  --hover-brighten-color: rgba(255, 255, 255, 0.15);
+  --hover-slightly-darken-color: rgba(0, 0, 0, 0.05);
+  --hover-darken-pct: 85%;
+  --hover-brighten-pct: 115%;
   --popups-hover: #4a90d9;
-  --popups-background: #2b2b2b;
-  --titleBarColor: #1e1e1e;
+  --popups-background: rgba(0, 0, 0, 0.1);
+  --titleBarColor: #708090;
   --checkbox-background: #4a90d9;
   --cost-color: #fff;
   --input-radius: 4px;
   --italic: italic;
-  --color-red: #ff4444;
-  --color-green: #44ff44;
-  --color-blue: #4a90d9;
-  --color-orange: #ffa500;
   --font: sans-serif;
   --fontHeader: sans-serif;
   --fontButton: sans-serif;
@@ -44,19 +49,23 @@
   --background-color: #2b2b2b;
   --color: #fff;
   --alpha: 1;
+  --safe-area-inset-top: 0;
+  --safe-area-inset-right: 0;
+  --safe-area-inset-bottom: 0;
+  --safe-area-inset-left: 0;
 }
 
 // SCSS 变量（供组件引用）
 $box_border: var(--box-border, #aaa);
-$box_shadow: var(--box-shadow, rgba(0, 0, 0, 0.2));
+$box_shadow: var(--box-shadow, 0 1px 4px rgba(0, 0, 0, 0.25));
 $input_background: var(--input-background, #2b2b2b);
-$input_highlights: var(--input-highlights, #4a90d9);
-$gray: var(--color-gray, #888);
-$light_blue: var(--color-lightblue, #4a90d9);
-$blue: var(--color-blue, #4a90d9);
-$red: var(--color-red, #ff4444);
-$green: var(--color-green, #44ff44);
-$orange: var(--color-orange, #ffa500);
+$input_highlights: var(--input-highlights, #0063fb);
+$gray: var(--color-gray, gray);
+$light_blue: var(--color-lightblue, #006199);
+$blue: var(--color-blue, #006199);
+$red: var(--color-red, #e64e4e);
+$green: var(--color-green, #439943);
+$orange: var(--color-orange, #805300);
 $image_filter: var(--image-filter, none);
 $bg_texture: var(--bg-texture, none);
 $backgroundRepeat: var(--backgroundRepeat, repeat);
@@ -68,9 +77,14 @@ $font_color_units: var(--font-color-units, #fff);
 $font_color_title: var(--font-color-title, #fff);
 $font_color_forces: var(--font-color-forces, #fff);
 $hover_color: var(--hover-color, rgba(74, 144, 217, 0.3));
+$hover_darken_color: var(--hover-darken-color, rgba(0, 0, 0, 0.15));
+$hover_brighten_color: var(--hover-brighten-color, rgba(255, 255, 255, 0.15));
+$hover_slightly_darken_color: var(--hover-slightly-darken-color, rgba(0, 0, 0, 0.05));
+$hover_darken_pct: var(--hover-darken-pct, 85%);
+$hover_brighten_pct: var(--hover-brighten-pct, 115%);
 $popups_hover: var(--popups-hover, #4a90d9);
-$popups_background: var(--popups-background, #2b2b2b);
-$titleBarColor: var(--titleBarColor, #1e1e1e);
+$popups_background: var(--popups-background, rgba(0, 0, 0, 0.1));
+$titleBarColor: var(--titleBarColor, #708090);
 $checkbox_background: var(--checkbox-background, #4a90d9);
 $cost_color: var(--cost-color, #fff);
 $input_radius: var(--input-radius, 4px);
@@ -87,12 +101,15 @@ $fontColor: var(--fontColor, #fff);
 $background_color: var(--background-color, #2b2b2b);
 $color: var(--color, #fff);
 $alpha: var(--alpha, 1);
+$safe_area_inset_top: var(--safe-area-inset-top, 0);
+$safe_area_inset_right: var(--safe-area-inset-right, 0);
+$safe_area_inset_bottom: var(--safe-area-inset-bottom, 0);
+$safe_area_inset_left: var(--safe-area-inset-left, 0);
 
 // 响应式断点
-$very_large_mode: 1920px;
-$large_mode: 1440px;
-$medium_mode: 1024px;
-$small_mode: 768px;
+$very_large_mode: 1200px;
+$large_mode: 770px;
+$medium_mode: 486px;
 
 // 其他常用变量
 $spacing: 8px;
