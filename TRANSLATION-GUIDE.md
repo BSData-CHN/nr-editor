@@ -1,239 +1,82 @@
-# UI 翻译维护指南
+# 翻译维护流程
 
-## 概述
+## 上游更新后的处理步骤
 
-本文档说明如何维护 NR-Editor 的中文翻译，以及如何在上游更新时检测和处理变化。
-
-## 目录结构
-
-```
-locales/
-├── zh-CN.json              # 中文翻译文件
-├── en-US.json              # 英文翻译文件
-├── extracted-texts.json    # 从代码中提取的文本（自动生成）
-├── translation-template.json # 翻译模板（自动生成）
-└── translation-report.json   # 翻译报告（自动生成）
-```
-
-## 工作流程
-
-### 1. 日常翻译工作
-
-#### 添加新翻译
-
-1. 在 `locales/zh-CN.json` 和 `locales/en-US.json` 中添加对应的翻译
-2. 保持两个文件的键名一致
-3. 按照功能模块组织翻译键
-
-```json
-{
-  "myModule": {
-    "title": "我的模块",
-    "description": "这是一个示例模块"
-  }
-}
-```
-
-#### 使用翻译
-
-```vue
-<template>
-  <button>{{ $t('common.save') }}</button>
-  <p>{{ $t('time_ago', { amount: 5, unit: $t('time_minute') }) }}</p>
-</template>
-```
-
-### 2. 上游更新时的处理流程
-
-当上游代码更新后，按以下步骤处理翻译：
-
-#### 步骤 1: 提取新的文本
-
+### 1. 提取新文本
 ```bash
 node scripts/extract-texts.js
 ```
 
-这会扫描所有代码文件，提取新的英文文本到 `extracted-texts.json`。
-
-#### 步骤 2: 检查翻译变化
-
+### 2. 检测变化
 ```bash
 node scripts/translation-helper.js changes
 ```
-
 输出示例：
 ```
-🆕 新增待翻译文本 (115):
+🆕 新增待翻译文本 (15):
   - "At Least"
   - "At Most"
-  - "Characteristic Kind"
   ...
 ```
 
-#### 步骤 3: 查看翻译模板
+### 3. 翻译新文本
 
-运行 `changes` 命令后会自动生成 `translation-template.json`，其中包含所有待翻译的文本。
-
+打开生成的 `locales/translation-template.json`：
 ```json
 {
   "auto_at_least": {
     "en": "At Least",
-    "zh": ""
-  },
-  "auto_at_most": {
-    "en": "At Most",
-    "zh": ""
+    "zh": "至少"  // 填写这里
   }
 }
 ```
 
-#### 步骤 4: 翻译新文本
+### 4. 合并翻译
 
-1. 打开 `translation-template.json`
-2. 填写每个条目的 `zh` 字段
-3. 将翻译好的文本合并到 `zh-CN.json` 中
+将翻译好的文本添加到 `locales/zh-CN.json`
 
-#### 步骤 5: 生成翻译报告
-
+### 5. 生成报告确认
 ```bash
 node scripts/translation-helper.js report
 ```
 
-查看 `translation-report.json` 了解翻译覆盖率。
-
-### 3. 定期检查
-
-建议每周运行一次完整检查：
-
-```bash
-node scripts/translation-helper.js all
-```
-
-## 工具命令
+## 脚本说明
 
 ### extract-texts.js
+从 `.vue`, `.ts`, `.js` 文件中提取英文文本。
 
-从代码中提取所有英文文本。
-
-```bash
-node scripts/extract-texts.js
-```
+**提取内容：**
+- HTML 标签内的文本
+- `placeholder`, `title` 属性
+- `$t('key')` 调用中的键
 
 ### translation-helper.js
 
-翻译辅助工具，支持多个命令：
+| 命令 | 功能 |
+|------|------|
+| `coverage` | 检查中英文翻译完整性 |
+| `changes` | 检测新增待翻译文本 |
+| `report` | 生成详细翻译报告 |
+| `sync` | 同步中英文文件结构 |
+| `all` | 运行所有检查 |
 
+## 定期检查
+
+建议每周运行一次：
 ```bash
-# 检查翻译覆盖率
-node scripts/translation-helper.js coverage
-
-# 检测新增/修改的文本
-node scripts/translation-helper.js changes
-
-# 生成翻译报告
-node scripts/translation-helper.js report
-
-# 同步翻译文件结构
-node scripts/translation-helper.js sync
-
-# 运行所有检查
 node scripts/translation-helper.js all
 ```
 
-## 翻译规范
+## 注意事项
 
-### 1. 通用术语
-
-| 英文 | 中文 |
-|------|------|
-| Catalogue | 目录 |
-| Game System | 游戏系统 |
-| Profile | 档案 |
-| Characteristic | 特性 |
-| Attribute | 属性 |
-| Constraint | 限制 |
-| Modifier | 修正 |
-| Condition | 条件 |
-| Force | 势力 |
-| Entry | 条目 |
-| Selection | 选择 |
-
-### 2. 命名规范
-
-- 使用有意义的键名：`common.save` 而不是 `text1`
-- 按模块分组：`editor.catalogue`, `editor.profile`
-- 使用驼峰式或短横线：`myKey` 或 `my-key`
-
-### 3. 参数化翻译
-
-对于包含变量的文本，使用参数化：
-
-```json
-{
-  "time_ago": "{amount}{unit}前",
-  "item_count": "{count} 个项目"
-}
-```
-
-```vue
-{{ $t('time_ago', { amount: 5, unit: $t('time_minute') }) }}
-```
-
-## 翻译覆盖率
-
-当前翻译状态：
-
-- ✅ 已有翻译：141 条
-- ⏳ 待翻译：约 115 条（UI 硬编码文本）
-
-## 常见问题
-
-### Q: 如何处理相同的英文单词在不同上下文的不同翻译？
-
-A: 使用不同的键名来区分上下文：
-
-```json
-{
-  "common.open": "打开",
-  "editor.openFile": "开启文件",
-  "settings.isOpen": "是否开启"
-}
-```
-
-### Q: 如何处理长文本的翻译？
-
-A: 保持原文格式，包括换行符：
-
-```json
-{
-  "help_text": "这是一个长文本说明。\n第二行内容。"
-}
-```
-
-### Q: 如何测试翻译效果？
-
-A: 运行开发服务器查看实时效果：
-
-```bash
-npm run dev
-```
+1. **保持同步**：添加翻译时同时更新 `zh-CN.json` 和 `en-US.json`
+2. **参数化**：包含变量的文本使用 `{variable}` 占位符
+3. **上下文**：同一单词在不同上下文可能需要不同翻译键
 
 ## 检查清单
 
-在提交翻译前，请检查：
-
-- [ ] 所有新文本都已翻译
-- [ ] 中英文翻译文件结构一致
-- [ ] 没有遗漏的参数化占位符
-- [ ] 术语使用一致
-- [ ] 运行 `npm run build` 构建成功
-
-## 参考资源
-
-- [Vue I18n 文档](https://vue-i18n.intlify.dev/)
-- [I18N-GUIDE.md](./I18N-GUIDE.md) - 详细使用指南
-- [I18N-SETUP.md](./I18N-SETUP.md) - 集成总结
-
-## 更新日志
-
-- 2026-02-18: 创建翻译辅助工具，自动化翻译维护流程
+提交前确认：
+- [ ] 所有新文本已翻译
+- [ ] 中英文文件结构一致
+- [ ] 占位符正确
+- [ ] `npm run build` 构建成功

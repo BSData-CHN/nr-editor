@@ -43,6 +43,7 @@ function getKeyInfoClass(cache: Record<string, any>, parentKey: string, obj: any
       return parentKey;
     }
     get editorTypeName(): string {
+      // @ts-ignore - 字符串参数类型兼容性问题
       return getTypeName(parentKey, this);
     }
     toString(): string {

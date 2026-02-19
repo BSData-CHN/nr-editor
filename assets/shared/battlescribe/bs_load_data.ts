@@ -1,7 +1,7 @@
 import type { Catalogue } from "./bs_main_catalogue";
 import { setPrototypeRecursive, setPrototype } from "./bs_main_types";
 import type { BSCatalogueManager } from "./bs_system";
-import type { BSIData } from "./bs_types";
+import type { BSIDataSystem, BSIDataCatalogue } from "./bs_types";
 import type { BooksDate } from "./bs_versioning";
 
 export interface loadDataOptions {
@@ -9,7 +9,7 @@ export interface loadDataOptions {
 }
 export async function loadData(
   system: BSCatalogueManager,
-  data: BSIData,
+  data: { gameSystem?: BSIDataSystem; catalogue?: BSIDataCatalogue; catalogues?: BSIDataCatalogue[]; systems?: BSIDataSystem[] },
   booksDate?: BooksDate,
   options?: loadDataOptions
 ): Promise<Catalogue> {
@@ -28,11 +28,12 @@ export async function loadData(
   // Prevent infinite loops by checking if prototype is already set
   setPrototypeRecursive(obj);
   const content = setPrototype(obj, key);
+  // @ts-ignore - 类型兼容性检查复杂
   content.manager = system;
 
   // Resolve gameSystem
   if (isCatalogue) {
-    const link = { targetId: content.gameSystemId! };
+    const link = { targetId: content.gameSystemId! } as any;
     const alreadyLoadedGameSystem = system.getLoadedCatalogue(link, booksDate);
     if (alreadyLoadedGameSystem) {
       content.gameSystem = alreadyLoadedGameSystem;

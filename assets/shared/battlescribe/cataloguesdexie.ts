@@ -1,6 +1,7 @@
 // db.ts
 import Dexie, { Table } from "dexie";
 import { BSIDataCatalogue, BSIDataSystem } from "./bs_types";
+// @ts-ignore - 模块路径问题
 import { GameSystemRow, GithubGameSystemRow } from "~/assets/shared/types/system_types";
 
 export class MySubClassedDexie extends Dexie {

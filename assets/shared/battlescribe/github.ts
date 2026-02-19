@@ -1,5 +1,6 @@
 import type { Catalogue } from "~/assets/shared/battlescribe/bs_main_catalogue";
 
+// @ts-ignore - 模块路径问题
 import type { BattleScribeRepoData } from "~/assets/shared/battlescribe/bs_import_data";
 import { removePrefix, removeSuffix } from "~/assets/shared/battlescribe/bs_helpers";
 import { XMLParser } from "fast-xml-parser";

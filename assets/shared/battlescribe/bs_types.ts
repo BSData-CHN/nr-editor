@@ -68,19 +68,19 @@ export type BSICharacteristicType = {
   [key: string]: any;
 };
 
-export type BSIAttributeType = {
+export interface BSIAttributeType {
   id: string;
   name: string;
   [key: string]: any;
-};
+}
 
-export type BSIAttribute = {
+export interface BSIAttribute {
   id: string;
   name: string;
   type?: BSIAttributeType;
   typeId?: string;
   [key: string]: any;
-};
+}
 
 // ==================== Condition/Modifier 相关类型 ====================
 export type BSICondition = Condition;
@@ -93,30 +93,38 @@ export type BSIRule = Rule;
 export type BSIInfoGroup = InfoGroup;
 
 // ==================== 特殊类型 ====================
-export type BSICost = {
+export interface BSICost {
   id: string;
   name: string;
   typeId: string;
   value?: number;
-};
+  [key: string]: any;
+}
 
-export type BSICostType = {
+export interface BSICostType {
   id: string;
   name?: string;
   defaultCostLimit?: number;
+  modifiers?: BSIModifier[];
+  modifierGroups?: BSIModifierGroup[];
   [key: string]: any;
-};
+}
 
-export type BSIQuery = {
+export interface BSIQuery {
   type: string;
   [key: string]: any;
-};
+}
 
-export type SupportedQueries = {
+export interface SupportedQueries {
+  conditions?: BSICondition[];
+  conditionGroups?: BSIConditionGroup[];
+  modifiers?: BSIModifier[];
+  modifierGroups?: BSIModifierGroup[];
+  repeats?: BSIRepeat[];
   [key: string]: any;
-};
+}
 
-export type BSIRepeat = {
+export type BSIRepeat = BSIQuery & {
   field: string;
   scope: string;
   value?: number;
@@ -134,28 +142,37 @@ export type BSIConditional = {
 };
 
 // ==================== NR 扩展类型 ====================
-export type NRAssociation = {
+export interface NRAssociation {
   id: string;
   name: string;
+  label?: string;
+  labelMembers?: string;
+  maxAssociationsPerMember?: number;
+  ids?: string[];
+  min?: number;
+  max?: number;
+  of?: string;
+  info?: string;
   [key: string]: any;
-};
+}
 
-export type AssociationConstraint = BSIConstraint & {
+export interface AssociationConstraint extends BSIConstraint {
   associationId?: string;
   [key: string]: any;
-};
+}
 
 export type BSIModifierType = "set" | "add" | "subtract" | "multiply" | "divide" | "append" | "prepend" | "remove" | string;
 
 // ==================== Data 类型 (用于 Dexie 数据库) ====================
-export type BSIData = {
+export interface BSIData {
   gameSystem?: BSIDataSystem;
   catalogue?: BSIDataCatalogue;
   catalogues?: BSIDataCatalogue[];
   systems?: BSIDataSystem[];
-};
+  [key: string]: any;
+}
 
-export type BSIDataCatalogue = {
+export interface BSIDataCatalogue {
   id: string;
   name: string;
   gameSystemId: string;
@@ -163,14 +180,14 @@ export type BSIDataCatalogue = {
   content?: string;
   lastUpdated?: string;
   [key: string]: any;
-};
+}
 
-export type BSIDataSystem = {
+export interface BSIDataSystem {
   id: string;
   name: string;
   catalogues?: BSIDataCatalogue[];
   [key: string]: any;
-};
+}
 
 // ==================== InfoLink 类型 ====================
 // InfoLink 的泛型约束是 Rule | InfoGroup | Profile
@@ -180,18 +197,8 @@ export type BSIInfoLink = InfoLink<Rule | InfoGroup | Profile>;
 export type BSILink<T extends Base = Group | Entry> = Link<T>;
 
 // ==================== EditorBase 类型 ====================
-export type EditorBase = {
-  parent?: EditorBase;
-  refs?: EditorBase[];
-  other_refs?: EditorBase[];
-  catalogue: BSICatalogue;
-  parentKey: string;
-  editorTypeName: string;
-  showInEditor?: boolean;
-  showChildsInEditor?: boolean;
-  highlightInEditor?: boolean;
-  errors?: any[];
-};
+// 注意：EditorBase 的 interface 定义在文件后面（第 767 行）
+// 这里不再使用 type 定义，避免重复
 
 // ==================== XML 解析相关类型 ====================
 /**
@@ -895,25 +902,7 @@ export type SupportedQueryType =
   | "modifierGroups"
   | "repeats";
 
-/**
- * 查询接口
- */
-export interface BSIQuery {
-  type: string;
-  [key: string]: any;
-}
-
-/**
- * 支持查询的接口
- */
-export interface SupportedQueries {
-  conditions?: BSICondition[];
-  conditionGroups?: BSIConditionGroup[];
-  modifiers?: BSIModifier[];
-  modifierGroups?: BSIModifierGroup[];
-  repeats?: BSIRepeat[];
-  [key: string]: any;
-}
+// BSIQuery 和 SupportedQueries 已在前面定义
 
 // ==================== 条件类型具体化 ====================
 /**
@@ -988,7 +977,7 @@ export type ConstraintType =
 /**
  * Constraint 字段类型
  */
-export type ConstraintField = 
+export type ConstraintField =
   | "selections"
   | "models"
   | "forces"
@@ -997,127 +986,19 @@ export type ConstraintField =
   | string;
 
 // ==================== Profile 相关类型 ====================
-/**
- * Profile 属性接口
- */
-export interface BSIAttribute {
-  id: string;
-  name: string;
-  type?: BSIAttributeType;
-  typeId?: string;
-  [key: string]: any;
-}
-
-/**
- * Profile 属性类型接口
- */
-export interface BSIAttributeType {
-  id: string;
-  name: string;
-  [key: string]: any;
-}
+// BSIAttribute 和 BSIAttributeType 已在前面定义
 
 // ==================== Cost 相关类型 ====================
-/**
- * Cost 接口
- */
-export interface BSICost {
-  id: string;
-  name: string;
-  typeId: string;
-  value?: number;
-  [key: string]: any;
-}
-
-/**
- * Cost 类型接口
- */
-export interface BSICostType {
-  id: string;
-  name?: string;
-  defaultCostLimit?: number;
-  modifiers?: BSIModifier[];
-  modifierGroups?: BSIModifierGroup[];
-  [key: string]: any;
-}
+// BSICost 和 BSICostType 已在前面定义
 
 // ==================== Association 相关类型 ====================
-/**
- * NR 扩展关联类型
- */
-export interface NRAssociation {
-  id: string;
-  name: string;
-  label?: string;
-  labelMembers?: string;
-  maxAssociationsPerMember?: number;
-  ids?: string[];
-  min?: number;
-  max?: number;
-  of?: string;
-  info?: string;
-  [key: string]: any;
-}
-
-/**
- * 关联约束接口
- */
-export interface AssociationConstraint extends BSIConstraint {
-  associationId?: string;
-  [key: string]: any;
-}
+// NRAssociation 和 AssociationConstraint 已在前面定义
 
 // ==================== 数据库相关类型 ====================
-/**
- * BSData 数据库接口
- */
-export interface BSIData {
-  gameSystem?: BSIDataSystem;
-  catalogue?: BSIDataCatalogue;
-  catalogues?: BSIDataCatalogue[];
-  systems?: BSIDataSystem[];
-  [key: string]: any;
-}
-
-/**
- * 数据库目录接口
- */
-export interface BSIDataCatalogue {
-  id: string;
-  name: string;
-  gameSystemId: string;
-  source?: string;
-  content?: string;
-  lastUpdated?: string;
-  [key: string]: any;
-}
-
-/**
- * 数据库系统接口
- */
-export interface BSIDataSystem {
-  id: string;
-  name: string;
-  catalogues?: BSIDataCatalogue[];
-  [key: string]: any;
-}
+// BSIData, BSIDataCatalogue, BSIDataSystem 已在前面定义
 
 // ==================== 本地条件组类型 ====================
-/**
- * 本地条件组接口
- */
-export interface BSILocalConditionGroup {
-  type: "atLeast" | "greaterThan" | "atMost" | "lessThan" | "equalTo" | "notEqualTo";
-  scope: string;
-  field: string;
-  childId?: string;
-  includeChildSelections?: boolean;
-  includeChildForces?: boolean;
-  percentValue?: boolean;
-  repeats: number;
-  value: number;
-  roundUp?: boolean;
-}
+// BSILocalConditionGroup 已在前面定义
 
 // ==================== 额外约束类型 ====================
 /**

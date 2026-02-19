@@ -111,8 +111,8 @@ export async function unzipFolder(file: string | ArrayBuffer | Blob, path: strin
 
 export async function unzipFile(file: string | ArrayBuffer | Blob): Promise<string> {
   if (typeof file === "string") {
-    var enc = new TextEncoder();
-    file = enc.encode(file);
+    const enc = new TextEncoder();
+    file = enc.encode(file).buffer as ArrayBuffer;
   }
   const unzipped = await unzip(file);
   for (const entry of Object.values(unzipped.entries)) {
@@ -317,7 +317,7 @@ export function convertToXml(data: BSICatalogue | Catalogue | BSIGameSystem) {
     ignoreAttributes: false,
     suppressBooleanAttributes: false,
     suppressEmptyNode: true,
-  };
+  } as XmlBuilderOptions;
   if (json.gameSystem) {
     json.gameSystem._xmlns = "http://www.battlescribe.net/schema/gameSystemSchema";
   }

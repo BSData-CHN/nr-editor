@@ -289,7 +289,7 @@ export function getNameExtra(obj: EditorBase, _refs = true, _type = true): strin
       pieces.push(`(${(obj.modifiers?.length || 0) + (obj.modifierGroups?.length || 0)})`);
       break;
     case "constraints":
-      if ((obj as unknown as BSIConstraint).automatic) {
+      if ((obj as unknown as BSIConstraint & { automatic?: any }).automatic) {
         pieces.push("(automatic)");
       }
       break;

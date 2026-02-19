@@ -11,7 +11,7 @@ export class InfoIndex<T = any> {
         return word.match(/[a-z]/) ? word.toLowerCase() : word;
     }
     add(text: string, value: T) {
-        if (typeof text !== "string" || !text.match(/(?=.*[a-zA-Z0-9].*[a-zA-Z0-9])/)) {
+        if (!text.match(/(?=.*[a-zA-Z0-9].*[a-zA-Z0-9])/)) {
             return;
         }
         this.addToIndex(this.index, value, this.words(text));

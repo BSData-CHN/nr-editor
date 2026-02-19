@@ -190,8 +190,17 @@ export function forEachPairRecursive(obj: any, callbackfn: (value: any, key: str
   traverse(obj, path);
 }
 
-import type { PatchIndex } from "@/assets/shared/types/system_types";
-export type { PatchIndex };
+// PatchIndex 类型定义 - 用于 JSON 补丁
+export interface PatchIndex {
+  [field: string]: {
+    [value: string]: {
+      $patchConditions?: PatchCondition[];
+      $move?: string;
+      $patchPush?: Record<string, any[]>;
+      [key: string]: any;
+    };
+  };
+}
 export interface PatchCondition {
   type: "if" | "not" | "or";
   field: string;
@@ -704,7 +713,7 @@ export function replaceAt(str: string, search: RegExp | string, position: number
   const targetIndex = position < 0 ? matches.length + position : position - 1; // Support negative indexing
   if (targetIndex < 0 || targetIndex >= matches.length) return str;
   const match = matches[targetIndex];
-  const start = match.index;
+  const start = match.index ?? 0;
   const text = match[0];
   return str.slice(0, start) + replacer(text) + str.slice(start + text.length);
 }

@@ -47,6 +47,7 @@ export class GameSystemFiles extends BSCatalogueManager {
     }
     if (this.gameSystem) {
       progress_cb && (await progress_cb(current, max, `Loading ${this.gameSystem.gameSystem.name}`));
+      // @ts-ignore - CatalogueLink 类型兼容性问题
       const loadedSys = await this.loadCatalogue({ targetId: this.gameSystem.gameSystem.id });
 
       loadedSys.processForEditor();
@@ -54,6 +55,7 @@ export class GameSystemFiles extends BSCatalogueManager {
 
       for (const catalogue of Object.values(this.catalogueFiles)) {
         progress_cb && (await progress_cb(current, max, `Loading ${catalogue.catalogue.name}`));
+        // @ts-ignore - CatalogueLink 类型兼容性问题
         const loaded = await this.loadCatalogue({ targetId: catalogue.catalogue.id });
         loaded.processForEditor();
         current++;

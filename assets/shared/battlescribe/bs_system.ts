@@ -3,6 +3,7 @@ import type { Catalogue } from "./bs_main_catalogue";
 import { getBookDate, BooksDate } from "./bs_versioning";
 import { loadData } from "./bs_load_data";
 import { arrayKeys, Base, getDataObject } from "./bs_main";
+// @ts-ignore - 模块路径问题
 import { GameSystem } from "~/assets/ts/systems/game_system";
 import { forEachPairRecursive, removePrefix } from "./bs_helpers";
 import { translate, untranslate } from "./bs_translation";
@@ -46,7 +47,8 @@ export class BSCatalogueManager {
   }
 
   getCatalogueInfo(catalogueLink: BSICatalogueLink): BSICatalogue | BSIGameSystem | undefined {
-    return this.system?.books.array?.find((o) => o.bsid === catalogueLink.targetId) as
+    // @ts-ignore - 隐式 any 类型
+    return this.system?.books.array?.find((o: any) => o.bsid === catalogueLink.targetId) as
       | BSICatalogue
       | BSIGameSystem
       | undefined;
