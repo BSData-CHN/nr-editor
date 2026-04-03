@@ -20,8 +20,8 @@
 </template>
 
 <script lang="ts">
-import { Catalogue } from "~/assets/shared/battlescribe/bs_main_catalogue";
-import { BSIRepeat } from "~/assets/shared/battlescribe/bs_types";
+import type { Catalogue } from "~/assets/shared/battlescribe/bs_main_catalogue";
+import type { BSIRepeat } from "~/assets/shared/battlescribe/bs_types";
 import NumberInput from "~/components/util/NumberInput.vue";
 
 export default {

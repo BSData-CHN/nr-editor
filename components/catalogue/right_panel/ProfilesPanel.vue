@@ -11,9 +11,9 @@
 </template>
 
 <script lang="ts">
-import { PropType } from "vue";
-import { Catalogue } from "~/assets/shared/battlescribe/bs_main_catalogue";
-import { BSIProfile } from "~/assets/shared/battlescribe/bs_types";
+import type { PropType } from "vue";
+import type { Catalogue } from "~/assets/shared/battlescribe/bs_main_catalogue";
+import type { BSIProfile } from "~/assets/shared/battlescribe/bs_types";
 
 export default {
   props: {

@@ -1,11 +1,7 @@
-import { Catalogue, EditorBase } from "~/assets/shared/battlescribe/bs_main_catalogue";
-import { ArmyBookOption, ArmyBookPath, ArmyBookUnit } from "./army_book_interfaces";
-import {
-  BSIInfoGroup,
-  BSIProfile,
-  BSISelectionEntry,
-  BSISelectionEntryGroup,
-} from "~/assets/shared/battlescribe/bs_types";
+import { Catalogue } from "~/assets/shared/battlescribe/bs_main_catalogue";
+import type { EditorBase } from "~/assets/shared/battlescribe/bs_main_catalogue";
+import type { ArmyBookOption, ArmyBookPath, ArmyBookUnit } from "./army_book_interfaces";
+import type { BSIInfoGroup, BSIProfile, BSISelectionEntry, BSISelectionEntryGroup } from "~/assets/shared/battlescribe/bs_types";
 import { charac, toTitleCaseWords } from "./util";
 import { sortByAscending } from "~/scripts/import/import_helpers";
 import T9AImporter from "./t9a_importer";

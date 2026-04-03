@@ -1,8 +1,10 @@
 import { getModifierOrConditionParent } from "~/assets/shared/battlescribe/bs_modifiers";
-import { Base, getDataObject } from "~/assets/shared/battlescribe/bs_main";
-import { Catalogue, EditorBase, getAllPossibleParents } from "~/assets/shared/battlescribe/bs_main_catalogue";
-import { BSICondition, BSIDataCatalogue } from "~/assets/shared/battlescribe/bs_types";
-import { GameSystemFiles } from "~/assets/shared/battlescribe/local_game_system";
+import type { Base } from "~/assets/shared/battlescribe/bs_main";
+import { getDataObject } from "~/assets/shared/battlescribe/bs_main";
+import type { Catalogue, EditorBase } from "~/assets/shared/battlescribe/bs_main_catalogue";
+import { getAllPossibleParents } from "~/assets/shared/battlescribe/bs_main_catalogue";
+import type { BSICondition, BSIDataCatalogue } from "~/assets/shared/battlescribe/bs_types";
+import type { GameSystemFiles } from "~/assets/shared/battlescribe/local_game_system";
 import { findSelfOrParentWhere, sortByAscendingInplace } from "~/assets/shared/battlescribe/bs_helpers";
 
 export interface EditorSearchItem {

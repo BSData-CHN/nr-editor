@@ -10,9 +10,10 @@
 </template>
 
 <script lang="ts">
-import { PropType } from "vue";
-import { Category } from "~/assets/shared/battlescribe/bs_main";
-import { Catalogue, EditorBase, Publication } from "~/assets/shared/battlescribe/bs_main_catalogue";
+import type { PropType } from "vue";
+import type { Category } from "~/assets/shared/battlescribe/bs_main";
+import type { Catalogue, EditorBase } from "~/assets/shared/battlescribe/bs_main_catalogue";
+import { Publication } from "~/assets/shared/battlescribe/bs_main_catalogue";
 
 export default {
   props: {

@@ -13,3 +13,12 @@ dist
 nr-win32-x64
 dist-electron
 *.pfx
+*.lock
+.qwen
+.vscode
+.idea
+BattleScribe_Android
+NewRecruit_Editor
+.ai
+.playwright-mcp
+.workbuddy

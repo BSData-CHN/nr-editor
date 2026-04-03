@@ -76,12 +76,12 @@
   </div>
 </template>
 <script lang="ts">
-import { PropType } from "nuxt/dist/app/compat/capi";
+import type { PropType } from "vue";
 import { sortByAscending, sortByAscendingInplace } from "~/assets/shared/battlescribe/bs_helpers";
-import { Base } from "~/assets/shared/battlescribe/bs_main";
-import { EditorBase } from "~/assets/shared/battlescribe/bs_main_catalogue";
-import { GameSystemFiles } from "~/assets/shared/battlescribe/local_game_system";
-import { AutoSortConfig } from "~/assets/shared/battlescribe/sortorder";
+import type { Base } from "~/assets/shared/battlescribe/bs_main";
+import type { EditorBase } from "~/assets/shared/battlescribe/bs_main_catalogue";
+import type { GameSystemFiles } from "~/assets/shared/battlescribe/local_game_system";
+import type { AutoSortConfig } from "~/assets/shared/battlescribe/sortorder";
 import { useSettingsStore } from "~/stores/settingsState";
 type StrOrRegex = string | RegExp;
 export default defineComponent({

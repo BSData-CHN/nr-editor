@@ -5,8 +5,8 @@
 </template>
 
 <script lang="ts">
-import { PropType } from "vue";
-import { Publication } from "~/assets/shared/battlescribe/bs_main_catalogue";
+import type { PropType } from "vue";
+import type { Publication } from "~/assets/shared/battlescribe/bs_main_catalogue";
 
 export default {
   props: {

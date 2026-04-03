@@ -32,10 +32,10 @@
 
 <script lang="ts">
 import { findParentWhere } from "~/assets/shared/battlescribe/bs_helpers";
-import { Base } from "~/assets/shared/battlescribe/bs_main";
-import { Catalogue, EditorBase } from "~/assets/shared/battlescribe/bs_main_catalogue";
+import type { Base } from "~/assets/shared/battlescribe/bs_main";
+import type { Catalogue, EditorBase } from "~/assets/shared/battlescribe/bs_main_catalogue";
 import { getModifierOrConditionParent } from "~/assets/shared/battlescribe/bs_modifiers";
-import { BSICondition } from "~/assets/shared/battlescribe/bs_types";
+import type { BSICondition } from "~/assets/shared/battlescribe/bs_types";
 import NumberInput from "~/components/util/NumberInput.vue";
 
 export default {

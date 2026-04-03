@@ -114,8 +114,8 @@
 <script lang="ts">
 import Tag from "./Tag.vue";
 import AutocompleteTags from "~/components/util/AutocompleteTags.vue";
-import { Base, Category, CategoryLink, Link } from "~/assets/shared/battlescribe/bs_main";
-import { Catalogue, EditorBase } from "~/assets/shared/battlescribe/bs_main_catalogue";
+import type { Base, Category, CategoryLink, Link } from "~/assets/shared/battlescribe/bs_main";
+import type { Catalogue, EditorBase } from "~/assets/shared/battlescribe/bs_main_catalogue";
 import ContextMenu from "~/components/dialog/ContextMenu.vue";
 import { getNameExtra } from "~/assets/shared/battlescribe/bs_editor";
 import { useEditorStore } from "~/stores/editorStore";

@@ -1,19 +1,21 @@
 <template>
   <button class="bouton" @click="click"> Create System </button>
   <PopupDialog v-if="open" v-model="open" button="Create" @button="create">
-    <h2 class="text-center">Create System</h2>
-    <span>Name </span>
-    <input class="w-full" type="text" v-model="text" required />
-    <span>Format </span>
-    <select v-model="format">
-      <option value="gstz">.gstz (Zipped XML)</option>
-      <option value="gst">.gst (XML)</option>
-      <option value="json">.json (JSON)</option>
-    </select>
-    <template v-if="electron">
-      <div> The system will be created at: </div>
-      <div class="gray">{{ folder }}/{{ text }}/</div>
-    </template>
+    <div class="create-system-popup">
+      <h2 class="text-center">Create System</h2>
+      <span>Name </span>
+      <input class="w-full" type="text" v-model="text" required />
+      <span>Format </span>
+      <select v-model="format">
+        <option value="gstz">.gstz (Zipped XML)</option>
+        <option value="gst">.gst (XML)</option>
+        <option value="json">.json (JSON)</option>
+      </select>
+      <template v-if="electron">
+        <div> The system will be created at: </div>
+        <div class="gray">{{ folder }}/{{ text }}/</div>
+      </template>
+    </div>
   </PopupDialog>
 </template>
 <script lang="ts">

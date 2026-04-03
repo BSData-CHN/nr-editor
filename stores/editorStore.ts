@@ -1,48 +1,11 @@
 import { defineStore } from "pinia";
-import {
-  ItemTypes,
-  EntryPathEntry,
-  getEntryPath,
-  onAddEntry,
-  onRemoveEntry,
-  popAtEntryPath,
-  addAtEntryPath,
-  scrambleIds,
-  getTypeName,
-  getTypeLabel,
-  fixKey,
-  removeEntry,
-  getName,
-  getNameExtra,
-} from "~/assets/shared/battlescribe/bs_editor";
-import {
-  enumerate_zip,
-  generateBattlescribeId,
-  removeSuffix,
-  textSearchRegex,
-  zipCompress,
-  forEachParent,
-  addObj,
-  type MaybeArray,
-  isObject,
-  sortByDescendingInplace,
-  sortByAscendingInplace,
-} from "~/assets/shared/battlescribe/bs_helpers";
-import { Catalogue, EditorBase } from "~/assets/shared/battlescribe/bs_main_catalogue";
-import {
-  Base,
-  Link,
-  entriesToJson,
-  entryToJson,
-  goodJsonKeys,
-  rootToJson,
-  Characteristic,
-  Rule,
-  getDataObject,
-  getDataDbId,
-  arrayKeys,
-  ProfileType,
-} from "~/assets/shared/battlescribe/bs_main";
+import { getEntryPath, onAddEntry, onRemoveEntry, popAtEntryPath, addAtEntryPath, scrambleIds, getTypeName, getTypeLabel, fixKey, removeEntry, getName, getNameExtra } from "~/assets/shared/battlescribe/bs_editor";
+import type { ItemTypes, EntryPathEntry } from "~/assets/shared/battlescribe/bs_editor";
+import { enumerate_zip, generateBattlescribeId, removeSuffix, textSearchRegex, zipCompress, forEachParent, addObj, isObject, sortByDescendingInplace, sortByAscendingInplace } from "~/assets/shared/battlescribe/bs_helpers";
+import type { MaybeArray } from "~/assets/shared/battlescribe/bs_helpers";
+import { Catalogue } from "~/assets/shared/battlescribe/bs_main_catalogue";
+import type { EditorBase } from "~/assets/shared/battlescribe/bs_main_catalogue";
+import { Link, entriesToJson, entryToJson, goodJsonKeys, rootToJson, Characteristic, Rule, getDataObject, getDataDbId, arrayKeys, ProfileType, Base } from "~/assets/shared/battlescribe/bs_main";
 import { setPrototypeRecursive } from "~/assets/shared/battlescribe/bs_main_types";
 import { useCataloguesStore } from "./cataloguesState";
 import type {
@@ -74,14 +37,14 @@ import {
 } from "~/assets/shared/battlescribe/bs_convert";
 import CatalogueVue from "~/pages/catalogue.vue";
 import { LeftPanelDefaults } from "~/components/catalogue/left_panel/LeftPanelDefaults";
-import { EditorUIState, useEditorUIState } from "./editorUIState";
+import { useEditorUIState } from "./editorUIState";
+import type { EditorUIState } from "./editorUIState";
 import { db } from "~/assets/shared/battlescribe/cataloguesdexie";
 import { getNextRevision, parseGitHubUrl } from "~/assets/shared/battlescribe/github";
 import { GameSystemFiles } from "~/assets/shared/battlescribe/local_game_system";
 import { toRaw } from "vue";
-import { Router } from "vue-router";
+import type { Router, RouteLocationNormalizedLoaded } from "vue-router";
 import { useSettingsStore } from "./settingsState";
-import { RouteLocationNormalizedLoaded } from "~/.nuxt/vue-router";
 import { useScriptsStore } from "./scriptsStore";
 import { getModifierOrConditionParent } from "~/assets/shared/battlescribe/bs_modifiers";
 import { entries } from "~/assets/shared/battlescribe/entries";

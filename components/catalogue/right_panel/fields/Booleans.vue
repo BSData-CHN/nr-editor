@@ -16,9 +16,9 @@
 </template>
 
 <script lang="ts">
-import { PropType } from "vue";
-import { Base } from "~/assets/shared/battlescribe/bs_main";
-import { EditorBase } from "~/assets/shared/battlescribe/bs_main_catalogue";
+import type { PropType } from "vue";
+import type { Base } from "~/assets/shared/battlescribe/bs_main";
+import type { EditorBase } from "~/assets/shared/battlescribe/bs_main_catalogue";
 
 enum BOOLEAN_STATUS {
   UNAVAILABLE = -1,

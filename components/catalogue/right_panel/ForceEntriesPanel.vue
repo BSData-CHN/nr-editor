@@ -11,9 +11,9 @@
 </template>
 
 <script lang="ts">
-import { PropType } from "vue";
-import { Force } from "~/assets/shared/battlescribe/bs_main";
-import { Catalogue, EditorBase } from "~/assets/shared/battlescribe/bs_main_catalogue";
+import type { PropType } from "vue";
+import type { Force } from "~/assets/shared/battlescribe/bs_main";
+import type { Catalogue, EditorBase } from "~/assets/shared/battlescribe/bs_main_catalogue";
 
 export default {
   props: {

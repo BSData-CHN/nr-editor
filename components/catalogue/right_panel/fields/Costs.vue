@@ -11,8 +11,8 @@
 </template>
 
 <script lang="ts">
-import { Catalogue, EditorBase } from "~/assets/shared/battlescribe/bs_main_catalogue";
-import { BSICost, BSICostType } from "~/assets/shared/battlescribe/bs_types";
+import type { Catalogue, EditorBase } from "~/assets/shared/battlescribe/bs_main_catalogue";
+import type { BSICost, BSICostType } from "~/assets/shared/battlescribe/bs_types";
 
 export default {
   data() {

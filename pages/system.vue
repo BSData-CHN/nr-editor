@@ -33,7 +33,7 @@
 
 <script lang="ts">
 import { sortByAscending } from "~/assets/shared/battlescribe/bs_helpers";
-import { BSIDataCatalogue, BSIDataSystem } from "~/assets/shared/battlescribe/bs_types";
+import type { BSIDataCatalogue, BSIDataSystem } from "~/assets/shared/battlescribe/bs_types";
 import { db } from "~/assets/shared/battlescribe/cataloguesdexie";
 import { getFolderFolders, getPath } from "~/electron/node_helpers";
 import { useCataloguesStore } from "~/stores/cataloguesState";

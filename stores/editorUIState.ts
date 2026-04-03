@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { type EntryPathEntry } from "~/assets/shared/battlescribe/bs_editor";
+import type { EntryPathEntry } from "~/assets/shared/battlescribe/bs_editor";
 import { arrayKeys } from "~/assets/shared/battlescribe/bs_main";
 import type { EditorBase } from "~/assets/shared/battlescribe/bs_main_catalogue";
 import { get_base_from_vue_el, get_ctx } from "./editorStore";

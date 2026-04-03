@@ -10,13 +10,13 @@
   </fieldset>
 </template>
 <script lang="ts">
-import { PropType } from "vue";
-import { Catalogue, EditorBase } from "~/assets/shared/battlescribe/bs_main_catalogue";
+import type { PropType } from "vue";
+import type { Catalogue, EditorBase } from "~/assets/shared/battlescribe/bs_main_catalogue";
 import { useEditorStore } from "~/stores/editorStore";
 import { sortByAscending } from "~/assets/shared/battlescribe/bs_helpers";
 import SortOrder from "./SortOrder.vue";
 import Entry from "../../left_panel/Entry.vue";
-import { Base } from "~/assets/shared/battlescribe/bs_main";
+import type { Base } from "~/assets/shared/battlescribe/bs_main";
 
 export default defineComponent({
   props: {

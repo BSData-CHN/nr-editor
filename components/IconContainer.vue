@@ -30,10 +30,11 @@ You may want to reload the system through the Systems tab"
 </template>
 
 <script lang="ts">
-import { PropType } from "vue";
+import type { PropType } from "vue";
 import { addOne, capitalize, sortByAscending } from "~/assets/shared/battlescribe/bs_helpers";
-import { BSIData } from "~/assets/shared/battlescribe/bs_types";
-import ErrorIcon, { IErrorMessage } from "./ErrorIcon.vue";
+import type { BSIData } from "~/assets/shared/battlescribe/bs_types";
+import ErrorIcon from "./ErrorIcon.vue";
+import type { IErrorMessage } from "./ErrorIcon.vue";
 import { getDataObject, getDataDbId } from "~/assets/shared/battlescribe/bs_main";
 import { useCataloguesStore } from "~/stores/cataloguesState";
 import { useEditorStore } from "~/stores/editorStore";

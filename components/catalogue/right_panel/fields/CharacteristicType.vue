@@ -92,8 +92,8 @@
 </template>
 
 <script lang="ts">
-import { BSIProfileType } from "~/assets/shared/battlescribe/bs_types";
-import { EditorBase } from "~/assets/shared/battlescribe/bs_main_catalogue";
+import type { BSIProfileType } from "~/assets/shared/battlescribe/bs_types";
+import type { EditorBase } from "~/assets/shared/battlescribe/bs_main_catalogue";
 import EditableDiv from "~/components/util/EditableDiv.vue";
 import InfoButton from "~/components/InfoButton.vue";
 export default {

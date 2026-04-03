@@ -2,6 +2,7 @@
 import { defineNuxtConfig } from "nuxt/config";
 import pkg from "./package.json";
 import { dirname } from "path";
+import vitePluginCommonjs from "vite-plugin-commonjs";
 const electron = process.argv.includes("--electron");
 const ghpages = process.argv.includes("--ghpages");
 
@@ -59,7 +60,12 @@ export default defineNuxtConfig({
       : []),
   ],
   typescript: {
-    strict: true,
+    strict: false,
+    tsConfig: {
+      compilerOptions: {
+        isolatedModules: false,
+      }
+    }
   },
   electron: {
     build: [
@@ -94,9 +100,30 @@ export default defineNuxtConfig({
       { entry: "electron/preload.js" }
     ],
   },
-  css: ["~/shared_components/css/vars.scss", "~/shared_components/css/style.scss"],
+  css: ["~/shared_components/css/style.scss"],
   vite: {
-    plugins: [require("vite-plugin-commonjs")()],
+    plugins: [vitePluginCommonjs()],
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: "modern",
+          additionalData: `@use "@/shared_components/css/vars.scss" as *;`,
+        },
+      },
+    },
+    esbuild: {
+      tsconfigRaw: {
+        compilerOptions: {
+          isolatedModules: false,
+          preserveValueImports: false,
+        },
+      },
+    },
+    resolve: {
+      alias: {
+        "vue": "vue/dist/vue.esm-bundler.js",
+      },
+    },
   },
   ignore: [".release/**"],
   hooks: {

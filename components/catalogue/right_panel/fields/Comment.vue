@@ -6,8 +6,8 @@
 </template>
 
 <script lang="ts">
-import { EditorBase } from "~/assets/shared/battlescribe/bs_main_catalogue";
-import { type BSIOption } from "~/assets/shared/battlescribe/bs_types";
+import type { EditorBase } from "~/assets/shared/battlescribe/bs_main_catalogue";
+import type { BSIOption } from "~/assets/shared/battlescribe/bs_types";
 
 export default {
   props: {

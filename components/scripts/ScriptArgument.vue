@@ -54,11 +54,11 @@
   </div>
 </template>
 <script lang="ts">
-import { PropType } from "nuxt/dist/app/compat/capi";
+import type { PropType } from "vue";
 import ScriptArgument from "./ScriptArgument.vue";
 import { GameSystemFiles } from "~/assets/shared/battlescribe/local_game_system";
 import { getDataObject } from "~/assets/shared/battlescribe/bs_main";
-import { BSIData } from "~/assets/shared/battlescribe/bs_types";
+import type { BSIData } from "~/assets/shared/battlescribe/bs_types";
 import EditableDiv from "../util/EditableDiv.vue";
 
 export default defineComponent({

@@ -42,7 +42,7 @@
 <script lang="ts">
 import { getName, getNameExtra } from "~/assets/shared/battlescribe/bs_editor";
 import { sortByAscending } from "~/assets/shared/battlescribe/bs_helpers";
-import { Base } from "~/assets/shared/battlescribe/bs_main";
+import type { Base } from "~/assets/shared/battlescribe/bs_main";
 import { Catalogue, Publication } from "~/assets/shared/battlescribe/bs_main_catalogue";
 
 export default {

@@ -58,11 +58,10 @@
 </template>
 
 <script lang="ts">
-import { link } from "fs";
-import { PropType } from "vue";
+import type { PropType } from "vue";
 import { sortByAscending } from "~/assets/shared/battlescribe/bs_helpers";
-import { Link, Profile, Rule } from "~/assets/shared/battlescribe/bs_main";
-import { Catalogue, EditorBase } from "~/assets/shared/battlescribe/bs_main_catalogue";
+import type { Link, Profile, Rule } from "~/assets/shared/battlescribe/bs_main";
+import type { Catalogue, EditorBase } from "~/assets/shared/battlescribe/bs_main_catalogue";
 import { useSettingsStore } from "~/stores/settingsState";
 
 export default {

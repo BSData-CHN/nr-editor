@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { setAppearanceFont } from "~/assets/shared/appearance";
-import { AppearanceTheme } from "~/assets/shared/types/appearance";
+import type { AppearanceTheme } from "~/assets/shared/types/appearance";
 import merge from "lodash.merge";
 export interface RGB {
   r: number;

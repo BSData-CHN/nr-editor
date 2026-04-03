@@ -68,12 +68,15 @@
 
 <script lang="ts">
 import { getNameExtra } from "~/assets/shared/battlescribe/bs_editor";
-import { Condition, Constraint } from "~/assets/shared/battlescribe/bs_main";
-import { Catalogue, EditorBase, getAllPossibleParents } from "~/assets/shared/battlescribe/bs_main_catalogue";
+import type { Condition, Constraint } from "~/assets/shared/battlescribe/bs_main";
+import type { Catalogue, EditorBase } from "~/assets/shared/battlescribe/bs_main_catalogue";
+import { getAllPossibleParents } from "~/assets/shared/battlescribe/bs_main_catalogue";
 import { getModifierOrConditionParent } from "~/assets/shared/battlescribe/bs_modifiers";
-import { BSICondition, BSIConstraint, BSICostType } from "~/assets/shared/battlescribe/bs_types";
-import {
+import type { BSICondition, BSIConstraint, BSICostType } from "~/assets/shared/battlescribe/bs_types";
+import type {
   EditorSearchItem,
+} from "~/assets/ts/catalogue/catalogue_helpers";
+import {
   getSearchCategories,
   getSearchElements,
   getParentUnitHierarchy,

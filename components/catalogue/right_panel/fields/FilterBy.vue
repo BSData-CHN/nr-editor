@@ -60,12 +60,14 @@
 </template>
 
 <script lang="ts">
-import { Catalogue } from "~/assets/shared/battlescribe/bs_main_catalogue";
-import { BSICondition } from "~/assets/shared/battlescribe/bs_types";
-import { EditorBase } from "~/assets/shared/battlescribe/bs_main_catalogue";
+import type { Catalogue } from "~/assets/shared/battlescribe/bs_main_catalogue";
+import type { BSICondition } from "~/assets/shared/battlescribe/bs_types";
+import type { EditorBase } from "~/assets/shared/battlescribe/bs_main_catalogue";
 
-import {
+import type {
   EditorSearchItem,
+} from "@/assets/ts/catalogue/catalogue_helpers";
+import {
   getSearchElements,
   getSearchCategories,
   getFilterSelections,

@@ -6,9 +6,9 @@
 </template>
 
 <script lang="ts">
-import { PropType } from "vue";
-import { BSIConditionGroup } from "~/assets/shared/battlescribe/bs_types";
-import { EditorBase } from "~/assets/shared/battlescribe/bs_main_catalogue";
+import type { PropType } from "vue";
+import type { BSIConditionGroup } from "~/assets/shared/battlescribe/bs_types";
+import type { EditorBase } from "~/assets/shared/battlescribe/bs_main_catalogue";
 import ConditionGroup from "./fields/ConditionGroup.vue";
 
 export default {

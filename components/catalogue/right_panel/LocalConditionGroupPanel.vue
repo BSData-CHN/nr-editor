@@ -7,10 +7,10 @@
 </template>
 
 <script lang="ts">
-import { Base, LocalConditionGroup } from "~/assets/shared/battlescribe/bs_main";
-import { Catalogue, EditorBase } from "~/assets/shared/battlescribe/bs_main_catalogue";
+import type { Base, LocalConditionGroup } from "~/assets/shared/battlescribe/bs_main";
+import type { Catalogue, EditorBase } from "~/assets/shared/battlescribe/bs_main_catalogue";
 import { getModifierOrConditionParent } from "~/assets/shared/battlescribe/bs_modifiers";
-import { BSILocalConditionGroup } from "~/assets/shared/battlescribe/bs_types";
+import type { BSILocalConditionGroup } from "~/assets/shared/battlescribe/bs_types";
 import NumberInput from "~/components/util/NumberInput.vue";
 
 export default {

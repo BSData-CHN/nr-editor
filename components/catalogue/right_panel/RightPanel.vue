@@ -40,11 +40,12 @@
 </template>
 
 <script lang="ts">
-import { PropType } from "vue";
-import { Catalogue, EditorBase } from "~/assets/shared/battlescribe/bs_main_catalogue";
+import type { PropType } from "vue";
+import type { Catalogue, EditorBase } from "~/assets/shared/battlescribe/bs_main_catalogue";
 import { useEditorStore } from "~/stores/editorStore";
 import NodePath from "~/components/util/NodePath.vue";
-import { EntryPathEntryExtended, getAtEntryPath, getEntryPathInfo } from "~/assets/shared/battlescribe/bs_editor";
+import type { EntryPathEntryExtended } from "~/assets/shared/battlescribe/bs_editor";
+import { getAtEntryPath, getEntryPathInfo } from "~/assets/shared/battlescribe/bs_editor";
 export default {
   components: { NodePath },
   setup() {

@@ -1,8 +1,8 @@
 import type { BSIConstraint, BSICost, BSIEntryLink, BSIInfoLink, BSIModifier, BSIProfile, BSISelectionEntry, BSISelectionEntryGroup } from "~/assets/shared/battlescribe/bs_types";
 import type { NoId, Profile, Unit, Weapon } from "./import_types";
 import { id, parseSpecialRule, removeTextInParentheses } from "./import_helpers";
-import { Base, Category } from "~/assets/shared/battlescribe/bs_main";
-
+import { Category } from "~/assets/shared/battlescribe/bs_main";
+import type { Base } from "~/assets/shared/battlescribe/bs_main";
 export function toModelProfile(data: Profile, parentName?: string) {
   const { ruleName, param } = parseSpecialRule(data.Name) // Same format as a special rule   
   const stats = data.Stats;

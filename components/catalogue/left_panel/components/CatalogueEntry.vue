@@ -369,19 +369,11 @@
 import type { PropType } from "vue";
 import type { CatalogueEntryItem } from "@/stores/editorStore";
 import { useEditorStore } from "~/stores/editorStore";
-import {
-  type ItemKeys,
-  type ItemTypes,
-  getName,
-  getTypeLabel,
-  getTypeName,
-  systemCategories,
-  catalogueCategories,
-  getNameExtra,
-  getEntryPath,
-} from "~/assets/shared/battlescribe/bs_editor";
+import { getName, getTypeLabel, getTypeName, systemCategories, catalogueCategories, getNameExtra, getEntryPath } from "~/assets/shared/battlescribe/bs_editor";
+import type { ItemKeys, ItemTypes } from "~/assets/shared/battlescribe/bs_editor";
 import type { Catalogue, EditorBase } from "~/assets/shared/battlescribe/bs_main_catalogue";
-import { Base, Condition, Link, ProfileType } from "~/assets/shared/battlescribe/bs_main";
+import { Condition, Link, ProfileType } from "~/assets/shared/battlescribe/bs_main";
+import type { Base } from "~/assets/shared/battlescribe/bs_main";
 import {
   generateBattlescribeId,
   sortByAscending,
